@@ -11,11 +11,11 @@ export class AppComponent {
   appBackColor: string = "";
   backImage: string = "";
 
-  contructor(private weather: WeatherService){
+  constructor(private weather:WeatherService){
     this.getCurrentPosition();
     setTimeout(()=>{
       if(this.weatherInfo.length === 0){
-        this.getWeatherInfo("mexico");
+        this.getWeatherInfo("bogota");
       }
       this.getStyle(this.weatherInfo);
     },1000);
