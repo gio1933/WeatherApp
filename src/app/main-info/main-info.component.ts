@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-main-info',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./main-info.component.css']
 })
 export class MainInfoComponent implements OnInit {
-
+  @Input() weatherInfo: any;
+  temp:string = "";
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  ngOnChanges():void{
+    this.weatherInfo.main.temp = String(parseInt(this.weatherInfo.main.temp) - 273);
   }
 
 }
